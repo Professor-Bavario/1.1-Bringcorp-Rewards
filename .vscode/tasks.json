@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Tester (MSYS2)",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "windows_msys2_make"
+            ],
+            "options": {
+                "cwd": "${fileDirname}/..",
+                "env": {
+                    "PATH": "C:/msys64/usr/bin;${env:PATH}"
+                }
+            },
+        },
+        {
+            "label": "Build (MSYS2)",
+            "type": "process",
+            "command": "gcc",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}/../${fileBasenameNoExtension}.exe",
+                "-I",
+                "${fileDirname}/../include/"
+            ],
+            "problemMatcher": ["$gcc"],
+            "options": {
+                "cwd": "${fileDirname}",
+                "env": {
+                    "PATH": "C:/msys64/mingw64/bin;${env:PATH}"
+                }
+            },
+            "dependsOn": ["Build Tester (MSYS2)"]
+        },
+        {
+            "label": "Build Tester (Linux)",
+            "type": "process",
+            "command": "make",
+            "args": [
+                "linux_make"
+            ]
+        },
+        {
+            "label": "Build (Linux)",
+            "type": "process",
+            "command": "gcc",
+            "args": [
+              "-g",
+              "${file}",
+              "-o",
+              "${fileDirname}/../${fileBasenameNoExtension}",
+              "-I",
+              "include/"
+            ],
+            "problemMatcher": ["$gcc"],
+            "dependsOn": ["Build Tester (Linux)"]
+        }
+    ]
+}
