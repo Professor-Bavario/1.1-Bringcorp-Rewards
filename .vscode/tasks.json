@@ -25,7 +25,8 @@
                 "-o",
                 "${fileDirname}/../${fileBasenameNoExtension}.exe",
                 "-I",
-                "${fileDirname}/../include/"
+                "${fileDirname}/../include/",
+                "-lm"
             ],
             "problemMatcher": ["$gcc"],
             "options": {
@@ -37,14 +38,6 @@
             "dependsOn": ["Build Tester (MSYS2)"]
         },
         {
-            "label": "Build Tester (Linux)",
-            "type": "process",
-            "command": "make",
-            "args": [
-                "linux_make"
-            ]
-        },
-        {
             "label": "Build (Linux)",
             "type": "process",
             "command": "gcc",
@@ -54,10 +47,10 @@
               "-o",
               "${fileDirname}/../${fileBasenameNoExtension}",
               "-I",
-              "include/"
+              "include/",
+              "-lm"
             ],
-            "problemMatcher": ["$gcc"],
-            "dependsOn": ["Build Tester (Linux)"]
+            "problemMatcher": ["$gcc"]
         }
     ]
 }
