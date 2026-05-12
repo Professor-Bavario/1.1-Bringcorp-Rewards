@@ -20,7 +20,7 @@ At the start, the program will greet the user. This part is already implemented.
 ### 2.1 Username
 First, we want to get the username.
 1. Print this message using `printf`: `Please enter your username (max 255 characters):\n`.
-2. Use `scanf` to read the user's username. Make sure the user cannot enter a username longer than 255 characters! *(Reminder: Use `%<length>d` for the formatter, with `<length>` being the maximum length that should be read.)*
+2. Use `scanf` to read the user's username. Make sure the user cannot enter a username longer than 255 characters! *(Reminder: Use `%<length>s` for the formatter, with `<length>` being the maximum length that should be read.)*
 3. Bringle has determined that having a longer username means being a better person. So we want to add 1 point per character in the username to our total score.
 
 *Hint: You need to include the `<string.h>` library and use a function from it to determine the point count.*
